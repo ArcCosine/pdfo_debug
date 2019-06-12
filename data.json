@@ -1,0 +1,75 @@
+[
+    {
+        "cardNo" : 45,
+        "link" : "https://youtu.be/trT19KTav0w",
+        "dungeonName" : "レイワ降臨",
+        "henseiKind" : "2人マルチ",
+        "useChar" : "4013,2948,3705,4906,4733,2940,4826,4444,3711,4296,4986,4396",
+        "henseiTag" : "タグ１",
+        "daiyouKisaiUmu" : "0",
+        "remarks" : "盤面パズルあり",
+        "kensyouFlag" : "1" ,
+        "organizationList" : [
+            {
+                "no" :  4013,
+                "src" : "http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4013.png",
+                "title" : "No.4013 万天の全能神・ゼウス＝ヴァース"
+            },
+            {
+                "no":2948,
+                "src" :"http://pdfo.php.xdomain.jp/userImgSplit/img2/icon_2948.png" ,
+                "title" : "No.2948 超覚醒ゼウス・ディオス" 
+            },
+            {
+                "no" : 3705,
+                "src" : "http://pdfo.php.xdomain.jp/userImgSplit/img3/icon_3705.png" ,
+                "title":  "No.3705 ハンター♂・レウスX装備" 
+            },
+            {
+                "no" : 4906,
+                "src" :"http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4906.png"  ,
+                "title": "No.4906 純翼の石蛇龍・ケツァルコアトル" 
+            },
+            {
+                "no" : 4733,
+                "src" : "http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4733.png" ,
+                "title" : "No.4733 冥爪の海蛇龍・リントヴルム" 
+            },
+            {
+                "no" : 2940,
+                "src" :"http://pdfo.php.xdomain.jp/userImgSplit/img2/icon_2940.png",
+                "title" : "No.2940 絶海龍・ウェルドール" 
+            },
+            {
+                "no" : 4826,
+                "src" :"http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4826.png"  ,
+                "title" : "No.4826 コラボサンデー" 
+            },
+            {
+                "no" : 4444,
+                "src" :"http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4444.png"  ,
+                "title" : "No.4444 ピモピモ" 
+            },
+            {
+                "no" : 3711,
+                "src" : "http://pdfo.php.xdomain.jp/userImgSplit/img3/icon_3711.png" ,
+                "title" : "No.3711 ハンター♀・ディノX装備" 
+            },
+            {
+                "no" : 4296,
+                "src" : "http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4296.png" ,
+                "title" : "No.4296 帝国の守護神・アテナ" 
+            },
+            {
+                "no" : 4986,
+                "src" : "http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4986.png" ,
+                "title" : "No.4986 ミツマタノヅチの妖怪メダル（ミツマタノヅチ装備）" 
+            },
+            {
+                "no" : 4396,
+                "src" :"http://pdfo.php.xdomain.jp/userImgSplit/img4/icon_4396.png", 
+                "title": "No.4396 スキルカード・アギダイン（ケルベロス装備）" 
+            }
+        ]
+    }
+]

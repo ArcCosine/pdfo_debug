@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>refactor</title>
+	<link rel='stylesheet' id='simplicity-style-css'  href='http://pdfo.php.xdomain.jp/wp-content/themes/simplicity2/style.css?ver=5.2.1&#038;fver=20190506084721' type='text/css' media='all' />
+<link rel='stylesheet' id='skin-style-css'  href='http://pdfo.php.xdomain.jp/wp-content/themes/simplicity2/skins/simple-black/style.css?ver=5.2.1&#038;fver=20190506084721' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-style-css'  href='http://pdfo.php.xdomain.jp/wp-content/themes/simplicity2/webfonts/css/font-awesome.min.css?ver=5.2.1&#038;fver=20190506084721' type='text/css' media='all' />
+<link rel='stylesheet' id='icomoon-style-css'  href='http://pdfo.php.xdomain.jp/wp-content/themes/simplicity2/webfonts/icomoon/style.css?ver=5.2.1&#038;fver=20190506084721' type='text/css' media='all' />
+<link rel='stylesheet' id='extension-style-css'  href='http://pdfo.php.xdomain.jp/wp-content/themes/simplicity2/css/extension.css?ver=5.2.1&#038;fver=20190506084720' type='text/css' media='all' />
+<style id='extension-style-inline-css' type='text/css'>
+#h-top{min-height:0}ul.snsp li.twitter-page a span{background-color:#55acee}ul.snsp li.facebook-page a span{background-color:#3b5998}ul.snsp li.google-plus-page a span{background-color:#dd4b39}ul.snsp li.instagram-page a span{background-color:#3f729b}ul.snsp li.hatebu-page a span{background-color:#008fde}ul.snsp li.pinterest-page a span{background-color:#cc2127}ul.snsp li.youtube-page a span{background-color:#e52d27}ul.snsp li.flickr-page a span{background-color:#1d1d1b}ul.snsp li.github-page a span{background-color:#24292e}ul.snsp li.line-page a span{background-color:#00c300}ul.snsp li.feedly-page a span{background-color:#87bd33}ul.snsp li.push7-page a span{background-color:#eeac00}ul.snsp li.rss-page a span{background-color:#fe9900}ul.snsp li a:hover{opacity:.7}@media screen and (max-width:639px){.article br{display:block}}
+</style>
+<link rel='stylesheet' id='child-style-css'  href='http://pdfo.php.xdomain.jp/wp-content/themes/simplicity2-child/style.css?ver=5.2.1&#038;fver=20190609112556' type='text/css' media='all' />
+<link rel='stylesheet' id='print-style-css'  href='http://pdfo.php.xdomain.jp/wp-content/themes/simplicity2/css/print.css?ver=5.2.1&#038;fver=20190506084720' type='text/css' media='print' />
+<link rel='stylesheet' id='wp-block-library-css'  href='http://pdfo.php.xdomain.jp/wp-includes/css/dist/block-library/style.min.css?ver=5.2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='UserAccessManagerLoginForm-css'  href='http://pdfo.php.xdomain.jp/wp-content/plugins/user-access-manager/assets/css/uamLoginForm.css?ver=2.1.12&#038;fver=20190516121725' type='text/css' media='screen' />
+    <!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- form actionで遷移先指定、phpで作成した表内のsubmitボタンで遷移時のパラメータを設定 -->
+    <form action="editpage">
+      <label id="searchResultText"></label>
+  <div id="vue-card">
+      <div name="searchResultArea" class="card-area" v-for="card in cards">
+        <div name="card" class="card-main" :data-henseiLink="card.link" :data-dungeonName="card.dungeonName" :data-henseiKind="card.henseiKind" :data-useChar="card.userChar" :data-henseiTag="card.henseiTag" :data-daiyouKisaiUmu="card.daiyouKisaiUmu" :data-remarks="card.remarks" :data-kensyouFlag="card.kensyouFlag">
+          <div class="card-top">
+            <a v-on:click="clickLink(card)">
+              <div class="card-topLeft">
+                <input type="submit" value="編集" name="updateButtom" style="display:none" v-on:click="transUpdateView(card)">
+                <div class="card-noArea">
+                  <div class="card-no">No.{{card.cardNo}}</div>
+                  <div class="card-kensyouFlag">検証済</div>
+                </div>
+                <div class="card-dungeonName">{{card.dungeonName}}</div>
+                <div class="card-henseiKind">{{card.henseiKind}}</div>
+              </div>
+              <div class="card-topRight">
+                <div class="card-tags">
+                  <div class="card-tag">{{card.henseiTag}}</div>
+                </div>
+                <input type="button" class="card-linkButton" value="Link">
+              </div>
+            </a>
+          </div>
+          <div class="card-mid">
+            <textarea class="card-remarks" name="remarks" readonly rows="1">盤面パズルあり</textarea>
+          </div>
+          <div class="card-bottom">
+            <div class="card-userChar" v-for="data in card.organizationList">
+              <img :src="data.src" :title="data.title" class="card-img" v-on:click="addExcludeChar(data)" >
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    </form> 
+    <script>
+  (function(){
+    fetch('./data.json').then( response=>{
+      return response.json()
+    }).then(cards=>{
+      const cardArea = new Vue({
+        el: '#vue-card',
+        data: {
+          cards: cards 
+        },
+        methods: {
+          clickLink: function(card){
+            console.log(card);
+            console.log(card.cardNo);
+            console.log(card.link);
+          },
+          transUpdateView: function(card){
+            console.log(card);
+            console.log(card.cardNo);
+          },
+          addExcludeChar: function(data){
+            console.log(data);
+            console.log(data.no);
+          }
+        }
+      })
+    })
+  })();
+    </script>
+  </body>
+</html>
+
